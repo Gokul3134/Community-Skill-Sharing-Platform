@@ -1,0 +1,119 @@
+body{
+    /* padding:50px; */
+    padding-top: 100px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgb(130, 155, 239) 0%,  rgba(172, 212, 231, 1) 62%);
+    
+}
+
+/* Header Styles */
+header {
+    /* background-color: #ffffff; */
+    /* color: white; */
+    padding: 10px 0; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure header stays on top */
+    background-color: rgb(255, 255, 255, 0.001);
+    
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between; /* Adjust to space out the three sections */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding to nav */
+}
+
+.nav-left {
+    display: flex;
+    align-items: center; /* Center image vertically */
+}
+
+
+/* Adjust padding and margin for left, center, and right divs */
+.nav-left {
+    padding: 10px 0; /* Add padding to the divs */
+}
+
+nav ul li a {
+    padding: 10px; /* Simplify padding to make it consistent */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Adjust gap between navbar items */
+}
+
+nav ul li {
+    display: inline;
+    font-family:sans-serif;
+    font-size: 20px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    /* padding: 10px 20px; */
+    padding: 5px;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    /* display: block;  */
+    /* Ensure proper spacing around links */
+    
+}
+
+#payment{
+    background-image: url(img/reg3.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 40px;
+}
+
+#payment form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#payment form label {
+    margin-top: 10px;
+}
+
+#payment form input, #booking form select {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#payment form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.pay{
+    margin-top: 180px;
+    background-color: white;
+}
+
+.pay{
+    padding: 20px;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
