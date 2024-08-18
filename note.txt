@@ -1,0 +1,169 @@
+****Showing the submitted assignment....
+
+                <div class="submitted-files" id="submittedFiles">
+                    <h2 style="padding-bottom:20px">Submitted Assignments</h2>
+                    <ul>
+                        <?php foreach ($assignments as $assignment): ?>
+                            <li>
+                                <strong><?php echo htmlspecialchars($assignment['full_name']); ?> From <?php echo htmlspecialchars($assignment['branch']); ?> : </strong>
+                                <a href="<?php echo htmlspecialchars($assignment['file_path']); ?>" target="_blank">
+                                    <?php echo htmlspecialchars($assignment['title']); ?>
+                                </a>
+                                <?php if ($assignment['user_id'] == $user_id): ?>
+                                    <form action="delete_assignment.php" method="post" style="display:inline;">
+                                        <input type="hidden" name="assignment_id" value="<?php echo htmlspecialchars($assignment['id']); ?>">
+                                        <button style="padding:2px 6px" type="submit">Delete</button>
+                                    </form>
+                                <?php endif; ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+
+
+
+
+<?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Booking Successful!',
+                        html: 'Your Booking ID is: <?php echo htmlspecialchars($_GET['booking_id'], ENT_QUOTES); ?><br><br>' +
+                            '<a href="payment.php?booking_id=<?php echo htmlspecialchars($_GET['booking_id'], ENT_QUOTES); ?>" class="btn btn-primary">Click Here <br> For Payment</a>',
+                        showConfirmButton: true
+                    });
+                });
+            </script>
+        <?php endif; ?>
+
+
+
+
+
+<?php
+include 'database.php';
+
+$sql = "SELECT * FROM course";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<div>";
+        echo "<img src='" . $row['image_url'] . "' alt='" . $row['course_name'] . "' style='width:320px;height:250px'>"; // Display course image
+        echo "<h2>" . $row['course_name'] . "</h2>";
+        echo "<p style='color:red;'>Price: ₹" . $row['price'] . "</p>";
+        echo "<button style='margin-left:84px;' onclick='toggleDescription(" . $row['id'] . ")' class='btn btn-info'>See About Course</button>"; // Show Description
+        echo "<div id='desc-" . $row['id'] . "' class='course-description' style='display:none; margin-top:10px; text-align:justify;'>" . $row['description'] . "</div>";
+        echo "<a href='booking.php? user_id=" . $row['id'] . " &course_id=" . $row['id'] . "&price=" . $row['price'] . "' class='btn btn-primary' style='margin-top:10px;'>Unlock Now</a>";
+        echo "</div>";
+    }
+} else {
+    echo "No courses available";
+}
+
+$conn->close();
+?>
+
+<script>
+let currentVisibleId = null;
+
+function toggleDescription(id) {
+    const allDescriptions = document.querySelectorAll('.course-description');
+
+    // Hide all descriptions if any is currently visible
+    allDescriptions.forEach(desc => {
+        if (desc.id !== 'desc-' + id && desc.style.display === 'block') {
+            desc.style.display = 'none';
+        }
+    });
+
+    // Toggle the selected description
+    const descElement = document.getElementById('desc-' + id);
+    if (descElement.style.display === 'none') {
+        descElement.style.display = 'block';
+        descElement.style.width = '94%';
+        currentVisibleId = id;
+    } else {
+        descElement.style.display = 'none';
+        currentVisibleId = null;
+    }
+}
+</script>
+
+
+
+
+Make sure that user can logged in all the page i mean to say that when user logged into userprofile.php after that if user go to profile.php then don't loggout the user...logged in the user in all pages....
+
+
+
+<?php
+session_start();
+if (!isset($_SESSION["user"])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user = $_SESSION["user"];
+
+include 'database.php';
+
+$sql = "SELECT * FROM course";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<div>";
+        echo "<img src='" . $row['image_url'] . "' alt='" . $row['course_name'] . "' style='width:320px;height:250px'>"; // Display course image
+        echo "<h2>" . $row['course_name'] . "</h2>";
+        echo "<p style='color:red;'>Price: ₹" . $row['price'] . "</p>";
+        echo "<button style='margin-left:84px;' onclick='toggleDescription(" . $row['id'] . ")' class='btn btn-info'>See About Course</button>"; // Show Description
+        echo "<div id='desc-" . $row['id'] . "' class='course-description' style='display:none; margin-top:10px; text-align:justify;'>" . $row['description'] . "</div>";
+        // Pass the user ID along with the course ID and price to the booking page
+        echo "<a href='booking.php?user_id=" . $user['id'] . "&course_id=" . $row['id'] . "&price=" . $row['price'] . "' class='btn btn-primary'
+
+
+
+
+
+
+<!-- <script>
+        function updateBranchOptions() {
+            const roleSelect = document.getElementById('role');
+            const branchSelect = document.getElementById('branch');
+            const role = roleSelect.value;
+
+            const branchesFaculty = ['Select', 'University of Engineering & Management, Kolkata', 'Institute of Engineering & Management, Kolkata', 'Amity University, Kolkata', 'Sister Nivedita University, Kolkata'];
+            const branchesStudent = ['Select','B.Tech', 'BCA', 'BBA', 'M.Tech', 'MCA',  'MBA'];
+            
+            let options = [];
+
+            if (role === 'Faculty') {
+                options = branchesFaculty;
+            } else if (role === 'Student') {
+                options = branchesStudent;
+            } else {
+                options = ['Select'];
+            }
+
+            // Clear current options
+            branchSelect.innerHTML = '';
+            
+            // Populate new options
+            options.forEach(branch => {
+                const option = document.createElement('option');
+                option.value = branch;
+                option.text = branch;
+                branchSelect.add(option);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleSelect = document.getElementById('role');
+            roleSelect.addEventListener('change', updateBranchOptions);
+        });
+    </script> -->
+
+

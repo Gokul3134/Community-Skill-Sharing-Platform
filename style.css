@@ -1,0 +1,148 @@
+body{
+    padding:50px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgb(130, 155, 239) 0%,  rgba(172, 212, 231, 1) 62%);
+    
+}
+
+/* Header Styles */
+header {
+    /* background-color: #ffffff; */
+    /* color: white; */
+    padding: 10px 0; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure header stays on top */
+    /* background-color: rgb(255, 255, 255, 0.2); */
+    
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between; /* Adjust to space out the three sections */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding to nav */
+}
+
+.nav-left {
+    display: flex;
+    align-items: center; /* Center image vertically */
+}
+
+
+/* Adjust padding and margin for left, center, and right divs */
+.nav-left {
+    padding: 10px 0; /* Add padding to the divs */
+}
+
+nav ul li a {
+    padding: 10px; /* Simplify padding to make it consistent */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Adjust gap between navbar items */
+}
+
+nav ul li {
+    display: inline;
+    font-family:sans-serif;
+    font-size: 20px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    /* padding: 10px 20px; */
+    padding: 5px;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    /* display: block;  */
+    /* Ensure proper spacing around links */
+    
+}
+
+/* nav ul li a:hover {
+    border-bottom: 2px solid rgb(255, 255, 255);
+    
+
+} */
+
+
+
+.container{
+    max-width: 600px;
+    margin:0 auto;
+    padding:50px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.form-group{
+    margin-bottom:10px;
+}
+
+.form-group label{
+    margin-top:10px;
+    margin-bottom:5px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+/* .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(147, 3, 3, 0.6);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+} */
+
+
+.form-group input {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.form-group button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+    
+}
+
+.btn-primary{
+    width: 500px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+p {
+    font-weight:bold;
+    font-family:sans-serif;
+}
+
+h1 {
+    text-align:center;
+    font-weight:bold;
+    padding-bottom:20px;
+    color:#0d6efd;
+    font-family:serif;
+}

@@ -1,0 +1,72 @@
+.course_catalog {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    padding: 20px;
+    margin-left: 40px;
+    /* background-color: white; */
+    
+}
+
+.course_catalog div {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    background-image: url(img/body3.jpg);
+    /* border-radius: 8px; */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    
+}
+
+.course_catalog div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    
+}
+
+h1{
+    color:rgb(114, 6, 168);
+}
+
+.course_catalog img {
+    
+    border-radius: 10px;
+}
+
+.course_catalog h2 {
+    text-align: center;
+}
+.course_catalog h5 {
+    color:green;
+    text-align:justify;
+    padding:20px;
+}
+
+.course_catalog p {
+    text-align: center;
+    color:red;
+    
+}
+
+.course_catalog a.btn {
+    display: inline-block; /* Make the anchor behave like a block for margin */
+    margin: 10px auto; /* Center the button */
+    padding: 10px 20px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+
+.course_catalog a.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+
